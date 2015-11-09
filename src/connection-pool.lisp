@@ -140,8 +140,8 @@ If all connections are in use request-connection will block until one becomes av
                  :size size
                  :params (list* driver-name params)))
 
-(defmethod initialize-instance :after (((pool fixed-size-connection-pool)) &rest args &key)
-  "Initially create all of the "
+(defmethod initialize-instance :after ((pool fixed-size-connection-pool) &rest args &key)
+  "Initially create all of the connections for the pool"
   (declare (ignore args))
   (with-slots (%count size available) pool
     (dotimes (i size)

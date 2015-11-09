@@ -12,6 +12,7 @@
   :author "Thayne McCombs"
   :license "MIT"
   :depends-on (:cl-dbi-cp
+               :bordeaux-threads
                :prove)
   :components ((:module "t"
                 :components
@@ -20,4 +21,4 @@
 
   :defsystem-depends-on (:prove-asdf)
   :perform (test-op (op c)
-                    (uiop:symbol-call :prove-asdf #:run-test-system c)))
+                    (uiop:symbol-call :prove-asdf '#:run c)))
